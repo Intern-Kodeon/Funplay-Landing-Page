@@ -1,18 +1,17 @@
 "use client";
-
-import React, { memo, useRef, useState } from 'react';
+import React, { memo, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 import { useInView } from "react-intersection-observer";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+
 // Predefined constants
 const images = [
-    "https://funplaysystems.com/images/contactbanner.jpg",
-    "https://funplaysystems.com/images/CoreCraft-Cover-Image.jpg",
-    "https://funplaysystems.com/images/og-banner.jpg"
+    "https://funplaysystems.com/images/contactbanner.jpg ",
+    "https://funplaysystems.com/images/CoreCraft-Cover-Image.jpg ",
+    "https://funplaysystems.com/images/og-banner.jpg "
 ];
 
 // Animation variants
@@ -20,14 +19,12 @@ const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
-
 const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.3 } },
     hover: { scale: 1.05, transition: { duration: 0.2 } },
     tap: { scale: 0.98 }
 };
-
 const formVariants = {
     hidden: { opacity: 0, y: 50, filter: "blur(2px)" },
     visible: {
@@ -38,21 +35,9 @@ const formVariants = {
     }
 };
 
-const popupVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5, ease: "easeOut" }
-    }
-};
-
 // Memoized FormComponent to prevent unnecessary re-renders
-const FormComponent = memo(({ formRef, register, errors, handleSubmit, onSubmit, isSubmitted }) => (
+const FormComponent = memo(({ register, errors, handleSubmit, onSubmit, isSubmitted }) => (
     <motion.form
-        ref={formRef}
-        action="https://funplaysystems.com/email-templates/contact-form.php"
-        method="POST"
         className="space-y-6"
         onSubmit={handleSubmit(onSubmit)}
     >
@@ -60,7 +45,7 @@ const FormComponent = memo(({ formRef, register, errors, handleSubmit, onSubmit,
             {/* Your name */}
             <div className="relative">
                 <label className="font-medium text-gray-900 text-xl flex items-center gap-2">
-                   Enter Your name *
+                    Enter Your name *
                 </label>
                 <div className="relative">
                     <input
@@ -189,17 +174,11 @@ const FormComponent = memo(({ formRef, register, errors, handleSubmit, onSubmit,
         </motion.div>
     </motion.form>
 ));
-FormComponent.displayName = 'FormComponent';
+FormComponent.displayName = "FormComponent";
 
 export default function HeroSectionWithForm() {
     const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.3 });
-
-    // Add a ref for the form element
-    const formRef = useRef(null);
-    const router = useRouter();
-    // State to track submission status and popup visibility
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [showPopup, setShowPopup] = useState(false);
 
     // Initialize react-hook-form
     const {
@@ -216,27 +195,38 @@ export default function HeroSectionWithForm() {
         },
     });
 
-    // Handle form submission
-    const onSubmit = (data) => {
-        // Clear the form
-        reset({
-            name: "",
-            email: "",
-            phone: "",
-            location: "",
-            customerType: "",
-            comment: "",
-        });
+    // Handle form submission using fetch
+    const onSubmit = async (data) => {
+        try {
+            // Send the form data to the server using fetch
+            const response = await fetch("https://funplaysystems.com/email-templates/contact-form.php ", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
 
-        // Submit the form normally
-        if (formRef.current) {
-            formRef.current.submit();
+            if (!response.ok) {
+                throw new Error("Form submission failed");
+            }
+
+            // Clear the form after successful submission
+            reset();
+
+            // Update the submission state
+            setIsSubmitted(true);
+
+            // Redirect to the thank-you page after a 2-second delay
+            setTimeout(() => {
+                window.location.href = "https://funplaysystems.com/thank-you.html ";
+            }, 2000);
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("There was an error submitting the form. Please try again.");
         }
-
-        // Redirect after submission
-        window.location.href = "https://funplaysystems.com/thank-you.html ";
     };
-    
+
     return (
         <section ref={ref} className="relative min-h-screen flex items-center justify-center text-black py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 overflow-hidden bg-black/80">
             <div className="absolute inset-0 overflow-hidden">
@@ -245,7 +235,7 @@ export default function HeroSectionWithForm() {
                     loop={true}
                     autoplay={{
                         delay: 1000,
-                        disableOnInteraction: false
+                        disableOnInteraction: false,
                     }}
                     speed={1500}
                     className="w-full h-full"
@@ -260,10 +250,11 @@ export default function HeroSectionWithForm() {
                     ))}
                 </Swiper>
             </div>
+
             <div className="relative max-w-7xl mx-auto z-10 px-4 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                 <div className="text-center lg:text-left">
                     <motion.img
-                        src="https://funplaysystems.com/images/logo-white@2x.png"
+                        src="https://funplaysystems.com/images/logo-white @2x.png"
                         alt="logo"
                         loading="lazy"
                         className="mx-auto lg:mx-0 mb-4 w-32 sm:w-40"
@@ -280,8 +271,6 @@ export default function HeroSectionWithForm() {
                         <span className="quicksand bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-gray-100">
                             Transform Your Space Into a World of Play
                         </span>
-                        <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-100"></span>
                     </motion.h1>
                     <motion.p
                         className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-100 max-w-xl mx-auto lg:mx-0 font-light tracking-wide"
@@ -313,6 +302,7 @@ export default function HeroSectionWithForm() {
                         </div>
                     </motion.div>
                 </div>
+
                 <div className="lg:w-[80%] w-full">
                     <motion.div
                         className="bg-gray-200 rounded-sm p-6 sm:p-8 border border-gray-300/50 shadow-2xl max-w-5xl mx-auto lg:mx-0"
@@ -324,7 +314,6 @@ export default function HeroSectionWithForm() {
                             Enquire Now
                         </h2>
                         <FormComponent
-                            formRef={formRef}
                             register={register}
                             errors={errors}
                             handleSubmit={handleSubmit}
@@ -334,6 +323,7 @@ export default function HeroSectionWithForm() {
                     </motion.div>
                 </div>
             </div>
+
             <motion.div
                 className="absolute top-1/4 left-1/4 w-10 sm:w-12 h-10 sm:h-12 border border-gray-400/20 rounded-full"
                 animate={inView ? {
@@ -359,37 +349,6 @@ export default function HeroSectionWithForm() {
                 }}
             />
             <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 bg-gradient-to-t from-gray-200/50 to-transparent"></div>
-
-            {/* Popup Message */}
-            {/* {showPopup && (
-                <motion.div
-                    className="fixed inset-0 z-50 flex items-center justify-center"
-                    variants={popupVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-
-                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
-
-                    <div className="relative bg-white h-60 w-[90%] sm:w-5xl rounded-lg shadow-lg z-10 flex flex-col justify-center items-center gap-4 p-6">
-                        <h1 className="text-5xl text-gray-800">Thank You!</h1>
-                        <p className="text-center text-gray-600">
-                            Your submission has been received. We appreciate your feedback and will get back to you shortly.
-                        </p>
-
-
-                        <button
-                            onClick={() => setShowPopup(false)}
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-200"
-                            aria-label="Close popup"
-                        >
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </motion.div>
-            )} */}
         </section>
     );
 }

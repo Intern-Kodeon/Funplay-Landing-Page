@@ -9,7 +9,6 @@ export default function LeadForm() {
         triggerOnce: false,
         threshold: 0.3,
     });
-
     const formRef = useRef(null);
 
     const {
@@ -28,24 +27,31 @@ export default function LeadForm() {
         },
     });
 
-    const onSubmit = (data) => {
-        // Clear the form
-        reset({
-            name: "",
-            email: "",
-            phone: "",
-            location: "",
-            customerType: "",
-            comment: "",
-        });
+    // Updated onSubmit function
+    const onSubmit = async (data) => {
+        try {
+            // Submit the form data to the server
+            const response = await fetch("https://funplaysystems.com/email-templates/contact-form.php ", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
 
-        // Submit the form normally
-        if (formRef.current) {
-            formRef.current.submit();
+            if (!response.ok) {
+                throw new Error("Form submission failed");
+            }
+
+            // Clear the form after successful submission
+            reset();
+
+            // Redirect to the thank-you page
+            window.location.href = "https://funplaysystems.com/thank-you.html ";
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("There was an error submitting the form. Please try again.");
         }
-
-        // Redirect after submission
-        window.location.href = "https://funplaysystems.com/thank-you.html ";
     };
 
     // Animation variants (unchanged)
@@ -54,15 +60,15 @@ export default function LeadForm() {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: "easeOut" }
-        }
+            transition: { duration: 0.8, ease: "easeOut" },
+        },
     };
     const dividerVariants = {
         hidden: { scaleX: 0 },
         visible: {
             scaleX: 1,
-            transition: { duration: 1, delay: 0.5, ease: "easeOut" }
-        }
+            transition: { duration: 1, delay: 0.5, ease: "easeOut" },
+        },
     };
     const formVariants = {
         hidden: { opacity: 0, y: 50, filter: "blur(2px)" },
@@ -70,16 +76,16 @@ export default function LeadForm() {
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
-            transition: { duration: 0.8, ease: "easeOut" }
-        }
+            transition: { duration: 0.8, ease: "easeOut" },
+        },
     };
     const buttonVariants = {
         hover: {
             scale: 1.05,
             boxShadow: "0 10px 20px rgba(59, 130, 246, 0.2)",
-            transition: { duration: 0.3 }
+            transition: { duration: 0.3 },
         },
-        tap: { scale: 0.98 }
+        tap: { scale: 0.98 },
     };
 
     return (
@@ -88,26 +94,20 @@ export default function LeadForm() {
                 {/* Floating Elements */}
                 <motion.div
                     className="absolute top-1/4 left-1/5 w-16 sm:w-24 h-16 sm:h-24 rounded-full bg-gradient-to-br from-blue-300/10 to-transparent blur-xl"
-                    animate={inView ? {
-                        y: [0, -30, 0],
-                        opacity: [0.2, 0.4, 0.2]
-                    } : {}}
+                    animate={inView ? { y: [0, -30, 0], opacity: [0.2, 0.4, 0.2] } : {}}
                     transition={{
                         duration: 8,
                         repeat: Infinity,
-                        ease: "easeInOut"
+                        ease: "easeInOut",
                     }}
                 />
                 <motion.div
                     className="absolute bottom-1/5 right-1/4 w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gradient-to-br from-blue-300/10 to-transparent blur-xl"
-                    animate={inView ? {
-                        scale: [1, 1.15, 1],
-                        opacity: [0.2, 0.4, 0.2]
-                    } : {}}
+                    animate={inView ? { scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] } : {}}
                     transition={{
                         duration: 6,
                         repeat: Infinity,
-                        ease: "easeInOut"
+                        ease: "easeInOut",
                     }}
                 />
                 <div className="max-w-7xl mx-auto">
@@ -131,13 +131,11 @@ export default function LeadForm() {
                     </div>
                     <motion.form
                         ref={formRef}
-                        action="https://funplaysystems.com/email-templates/contact-form.php "
-                        method="POST"
                         className="space-y-6 bg-gray-50 backdrop-blur-xl rounded-xl shadow-lg p-6 md:p-10 border border-gray-200/50 relative overflow-hidden"
                         variants={formVariants}
                         initial="hidden"
                         animate={inView ? "visible" : "hidden"}
-                        onSubmit={handleSubmit(onSubmit)}
+                        onSubmit={handleSubmit(onSubmit)} // Use handleSubmit to handle form submission
                     >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Your name */}
@@ -335,12 +333,10 @@ export default function LeadForm() {
                                 transition={{ duration: 0.5 }}
                             />
                         </motion.div>
-
                         <p className="text-center text-gray-600 text-sm mt-4">
                             * We respect your privacy. Your information will not be shared.
                         </p>
                     </motion.form>
-                    
                 </div>
             </section>
         </div>
