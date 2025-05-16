@@ -275,13 +275,13 @@ export default function HeroSectionWithForm() {
                             Transform Your Space Into a World of Play
                         </span>
                     </motion.h1>
-                    <motion.h2
+                    <motion.p
                         className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-100 max-w-xl mx-auto lg:mx-0 font-light tracking-wide"
                         animate={inView ? "visible" : "hidden"}
                         transition={{ delay: 0.2 }}
                     >
                         Design-awarded playgrounds crafted for schools, communities, and homes across India.
-                    </motion.h2>
+                    </motion.p>
                     <motion.div
                         className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10"
                         animate={inView ? "visible" : "hidden"}
