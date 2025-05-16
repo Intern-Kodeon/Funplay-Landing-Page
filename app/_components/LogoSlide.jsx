@@ -43,33 +43,33 @@ function LogoSlide() {
     }, []);
 
     const clients = [
-        { img: "/abad.webp" },
-        { img: "/alfeen.webp" },
-        { img: "/baldato.png" },
-        { img: "/bgs.webp" },
-        { img: "/brigade.png" },
-        { img: "/casagrand.webp" },
-        { img: "/dac.webp" },
-        { img: "/diamond.png" },
-        { img: "/felixa.webp" },
-        { img: "/godrej.webp" },
-        { img: "/golden-arch.webp" },
-        { img: "/jindal.webp" },
-        { img: "/kalyan.webp" },
-        { img: "/nanma.webp" },
-        { img: "/purva.webp" },
-        { img: "/raghuvir.webp" },
-        { img: "/ryan.webp" },
-        { img: "/sangini.jpg" },
-        { img: "/schmitten.jpg" },
-        // { img: "/shyam.webp" },
-        { img: "/velammal.webp" },
-        { img: "/welmont.webp" },
+        { img: "/client/abad.webp" },
+        { img: "/client/alfeen.webp" },
+        { img: "/client/baldato.webp" },
+        { img: "/client/bgs.webp" },
+        { img: "/client/brigade.webp" },
+        { img: "/client/casagrand.webp" },
+        { img: "/client/dac.webp" },
+        { img: "/client/diamond.webp" },
+        { img: "/client/felixa.webp" },
+        { img: "/client/godrej.webp" },
+        { img: "/client/golden-arch.webp" },
+        { img: "/client/jindal.webp" },
+        { img: "/client/kalyan.webp" },
+        { img: "/client/nanma.webp" },
+        { img: "/client/purva.webp" },
+        { img: "/client/raghuvir.webp" },
+        { img: "/client/ryan.webp" },
+        { img: "/client/sangini.webp" },
+        { img: "/client/schmitten.webp" },
+        // { img: "/client/shyam.webp" },
+        { img: "/client/velammal.webp" },
+        { img: "/client/welmont.webp" },
     ];
 
     return (
         <div ref={ref} className="bg-white py-32">
-            <motion.h2
+            <motion.p
                 className="text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-6 sm:mb-8 tracking-tight font-sans"
                 variants={headingVariants}
                 initial="hidden"
@@ -78,7 +78,7 @@ function LogoSlide() {
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700">
                     Our Clients
                 </span>
-            </motion.h2>
+            </motion.p>
             <motion.div
                 className="w-32 sm:w-40 h-1 bg-gradient-to-r from-gray-900/0 via-gray-900/80 to-gray-300/0 mx-auto mt-6 sm:mt-8 rounded-full"
                 variants={dividerVariants}
@@ -105,6 +105,7 @@ function LogoSlide() {
                                     src={client.img}
                                     alt={client.alt || `Client ${index + 1}`}
                                     className="h-20  transition-all duration-300 object-cover"
+                                    loading='lazy'
                                 />
                             </div>
                         </div>

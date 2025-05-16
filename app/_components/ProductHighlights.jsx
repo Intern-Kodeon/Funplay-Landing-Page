@@ -14,14 +14,14 @@ export default function ProductHighlights() {
                 { label: "385m²", icon: "📏" },
                 { label: "21 USERS", icon: "👥" },
             ],
-            image: "https://funplaysystems.com/images/Toucan-2.jpg",
+            image: "/producthighlight/Toucan-2.webp",
             bgColor: "white",
             accentColor: "from-blue-400 to-blue-600",
-            svg1: "https://funplaysystems.com/images/climbing.svg",
+            svg1: "/producthighlight/climbing.webp",
             svgDesc1: "Climbing",
-            svg2: "https://funplaysystems.com/images/Sliding.svg",
+            svg2: "/producthighlight/Sliding.webp",
             svgDesc2: "Sliding",
-            svg3: "https://funplaysystems.com/images/Jumping.svg",
+            svg3: "/producthighlight/Jumping.webp",
             svgDesc3: "Jumping",
         },
         {
@@ -32,14 +32,14 @@ export default function ProductHighlights() {
                 { label: "420m²", icon: "📏" },
                 { label: "30 USERS", icon: "👥" },
             ],
-            image: "https://funplaysystems.com/images/Bellatrix-1.jpg",
+            image: "/producthighlight/Bellatrix-1.webp",
             bgColor: "white",
             accentColor: "from-purple-400 to-purple-600",
-            svg1: "https://funplaysystems.com/images/Rolling.svg",
+            svg1: "/producthighlight/Rolling.webp",
             svgDesc1: "Rolling",
-            svg2: "https://funplaysystems.com/images/Hanging.svg",
+            svg2: "/producthighlight/Hanging.webp",
             svgDesc2: "Hanging",
-            svg3: "https://funplaysystems.com/images/Balancing.svg",
+            svg3: "/producthighlight/Balancing.webp",
             svgDesc3: "Balancing",
         },
         {
@@ -50,14 +50,14 @@ export default function ProductHighlights() {
                 { label: "250m²", icon: "📏" },
                 { label: "15 USERS", icon: "👥" },
             ],
-            image: "https://funplaysystems.com/images/paper-boat-200.jpg",
+            image: "/producthighlight/paper-boat-200.webp",
             bgColor: "white",
             accentColor: "from-green-400 to-green-600",
-            svg2: "https://funplaysystems.com/images/climbing.svg",
+            svg2: "/producthighlight/climbing.webp",
             svgDesc2: "Climbing",
-            svg1: "https://funplaysystems.com/images/Sliding.svg",
+            svg1: "/producthighlight/Sliding.webp",
             svgDesc1: "Sliding",
-            svg3: "https://funplaysystems.com/images/crawling.svg",
+            svg3: "/producthighlight/crawling.webp",
             svgDesc3: "Crawling",
         },
         {
@@ -68,12 +68,12 @@ export default function ProductHighlights() {
                 { label: "500m²", icon: "📏" },
                 { label: "25 USERS", icon: "👥" },
             ],
-            image: "https://funplaysystems.com/images/Ulta-Ghar3.jpg",
+            image: "/producthighlight/Ulta-Ghar3.webp",
             bgColor: "white",
             accentColor: "from-orange-400 to-orange-600",
-            svg2: "https://funplaysystems.com/images/climbing.svg",
+            svg2: "/producthighlight/climbing.webp",
             svgDesc2: "Climbing",
-            svg1: "https://funplaysystems.com/images/Sliding.svg",
+            svg1: "/producthighlight/Sliding.webp",
             svgDesc1: "Sliding",
         },
         {
@@ -84,14 +84,14 @@ export default function ProductHighlights() {
                 { label: "500m²", icon: "📏" },
                 { label: "25 USERS", icon: "👥" },
             ],
-            image: "https://funplaysystems.com/images/Phula6.jpg",
+            image: "/producthighlight/Phula6.webp",
             bgColor: "white",
             accentColor: "from-pink-400 to-pink-600",
-            svg2: "https://funplaysystems.com/images/climbing.svg",
+            svg2: "/producthighlight/climbing.webp",
             svgDesc2: "Climbing",
-            svg1: "https://funplaysystems.com/images/Sliding.svg",
+            svg1: "/producthighlight/Sliding.webp",
             svgDesc1: "Sliding",
-            svg3: "https://funplaysystems.com/images/crawling.svg",
+            svg3: "/producthighlight/crawling.webp",
             svgDesc3: "Crawling",
         },
     ];
@@ -188,7 +188,7 @@ export default function ProductHighlights() {
             />
 
             <div className="relative max-w-7xl mx-auto z-10">
-                <motion.h2
+                <motion.h6
                     className="text-4xl sm:text-5xl text-center font-bold mb-8 tracking-tight"
                     initial={{ opacity: 0, y: -30 }}
                     animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -197,7 +197,7 @@ export default function ProductHighlights() {
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-900">
                         Explore Our Signature Play Units
                     </span>
-                </motion.h2>
+                </motion.h6>
 
                 <motion.div
                     className="w-40 h-1 bg-gradient-to-r from-black/0 via-gray-900/80 to-indigo-300/0 mx-auto mt-6 rounded-full"
@@ -221,7 +221,7 @@ export default function ProductHighlights() {
                                 <img
                                     src={product.image}
                                     alt={`${product.name} playground`}
-                                    
+                                    loading='lazy'
                                     className="object-cover transition-all duration-500 group-hover:scale-105 h-full"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
@@ -233,7 +233,7 @@ export default function ProductHighlights() {
                             </div>
 
                             <div className="px-5 sm:px-6 py-5 sm:pt-6 flex-grow flex flex-col h-[240px]">
-                                <h2 className='text-center text-gray-900 text-xl pb-2 font-bold'>{product.name}</h2>
+                                <p className='text-center text-gray-900 text-xl pb-2 font-bold'>{product.name}</p>
                                 <p className="text-gray-700 text-sm sm:text-base text-center mb-4 leading-relaxed font-medium">
                                     {product.desc}
                                 </p>
@@ -248,30 +248,30 @@ export default function ProductHighlights() {
                                 <div className='flex items-center justify-between'>
                                     {product.svg1 && product.svgDesc1 && (
                                         <div className='flex items-center gap-2 mt-4'>
-                                            <img src={product.svg1} alt={product.svgDesc1} className='w-5' />
+                                            <img loading='lazy' src={product.svg1} alt={product.svgDesc1} className='w-5' />
                                             <p>{product.svgDesc1}</p>
                                         </div>
                                     )}
                                     {product.svg2 && product.svgDesc2 && (
                                         <div className='flex items-center gap-2 mt-4'>
-                                            <img src={product.svg2} alt={product.svgDesc2} className='w-5' />
+                                            <img src={product.svg2} alt={product.svgDesc2} className='w-5' loading='lazy' />
                                             <p>{product.svgDesc2}</p>
                                         </div>
                                     )}
                                     {product.svg3 && product.svgDesc3 && (
                                         <div className='flex items-center gap-2 mt-4'>
-                                            <img src={product.svg3} alt={product.svgDesc3} className='w-5' />
+                                            <img src={product.svg3} alt={product.svgDesc3} className='w-5' loading='lazy'/>
                                             <p>{product.svgDesc3}</p>
                                         </div>
                                     )}
                                 </div>
 
                                 <div className="flex justify-center items-center gap-2 mt-8 cursor-pointer">
-                                    <h2
+                                    <p
                                         className='text-center text-xl text-blue-500 hidden group-hover:block transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100 transform group-hover:-translate-y-1'
                                     >
                                         Contact us
-                                    </h2>
+                                    </p>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         className="h-6 w-6 text-blue-500 hidden group-hover:block transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 transform group-hover:-translate-y-1"

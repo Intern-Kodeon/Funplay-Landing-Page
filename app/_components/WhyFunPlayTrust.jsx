@@ -112,9 +112,9 @@ const ProductCard = memo(({ product, index }) => (
             </div>
             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
         </div>
-        <motion.h3 className="text-xl font-bold text-gray-800 mb-4 px-2 sm:px-4">
+        <motion.h4 className="text-xl font-bold text-gray-800 mb-4 px-2 sm:px-4">
             {product.title}
-        </motion.h3>
+        </motion.h4>
     </motion.div>
 ));
 ProductCard.displayName = 'ProductCard';
@@ -129,7 +129,7 @@ function WhyFunPlayTrust() {
         >
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#e74c3c]/20 rounded-full translate-x-1/2 translate-y-1/2"></div>
             <div className="max-w-7xl mx-auto relative z-10">
-                <motion.h2
+                <motion.h5
                     className="text-4xl md:text-5xl text-center font-bold mb-8 tracking-tight font-sans"
                     initial={{ opacity: 0, y: -30 }}
                     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -138,7 +138,7 @@ function WhyFunPlayTrust() {
                     <span className="bg-clip-text text-transparent quicksand bg-gradient-to-r from-black to-gray-900">
                         Why Trust FunPlay?
                     </span>
-                </motion.h2>
+                </motion.h5>
                 <motion.div
                     className="w-32 sm:w-40 h-1 bg-gradient-to-r from-black/0 via-gray-900/80 to-indigo-300/0 mx-auto mt-6 sm:mt-8 rounded-full"
                     initial={{ scaleX: 0 }}

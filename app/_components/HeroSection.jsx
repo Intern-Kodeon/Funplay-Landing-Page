@@ -9,16 +9,12 @@ import { useForm } from "react-hook-form";
 
 // Predefined constants
 const images = [
-    "https://funplaysystems.com/images/contactbanner.jpg ",
-    "https://funplaysystems.com/images/CoreCraft-Cover-Image.jpg ",
-    "https://funplaysystems.com/images/og-banner.jpg "
+    "/hero/heropage1.webp", 
+    "/hero/heropage2.webp ",
+    "/hero/heropage3.webp "
 ];
 
-// Animation variants
-const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-};
+
 const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.3 } },
@@ -254,7 +250,7 @@ export default function HeroSectionWithForm() {
             <div className="relative max-w-7xl mx-auto z-10 px-4 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                 <div className="text-center lg:text-left">
                     <motion.img
-                        src="https://funplaysystems.com/images/logo-white @2x.png"
+                        src="/hero/logo.webp"
                         alt="logo"
                         loading="lazy"
                         className="mx-auto lg:mx-0 mb-4 w-32 sm:w-40"
@@ -264,27 +260,22 @@ export default function HeroSectionWithForm() {
                     />
                     <motion.h1
                         className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight"
-                        variants={textVariants}
-                        initial="hidden"
+
                         animate={inView ? "visible" : "hidden"}
                     >
                         <span className="quicksand bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-gray-100">
                             Transform Your Space Into a World of Play
                         </span>
                     </motion.h1>
-                    <motion.p
+                    <motion.h2
                         className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-100 max-w-xl mx-auto lg:mx-0 font-light tracking-wide"
-                        variants={textVariants}
-                        initial="hidden"
                         animate={inView ? "visible" : "hidden"}
                         transition={{ delay: 0.2 }}
                     >
                         Design-awarded playgrounds crafted for schools, communities, and homes across India.
-                    </motion.p>
+                    </motion.h2>
                     <motion.div
                         className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10"
-                        variants={textVariants}
-                        initial="hidden"
                         animate={inView ? "visible" : "hidden"}
                         transition={{ delay: 0.4 }}
                     >

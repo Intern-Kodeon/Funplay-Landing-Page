@@ -2,7 +2,6 @@
 
 import React, { memo } from 'react';
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 
 // Predefined constants to avoid repeated declarations
@@ -93,18 +92,18 @@ const ServiceCard = memo(({ service, index }) => {
                     {service.number}
                 </motion.div>
                 <div className="flex-1 mb-4 sm:mb-0">
-                    <motion.h4
+                    <motion.p
                         className="text-xs sm:text-sm text-gray-500 mb-1"
                         variants={titleVariants}
                     >
                         {service.subtitle}
-                    </motion.h4>
-                    <motion.h3
+                    </motion.p>
+                    <motion.p
                         className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900"
                         variants={titleVariants}
                     >
                         {service.title}
-                    </motion.h3>
+                    </motion.p>
                 </div>
                 <motion.p
                     className="flex-1 text-gray-600 text-sm sm:text-base leading-relaxed max-w-full sm:max-w-md"
@@ -143,7 +142,7 @@ const ServicesSection = () => {
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
             <div className="relative max-w-7xl mx-auto">
-                <motion.h2
+                <motion.p
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-6 sm:mb-8 tracking-tight font-sans bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-900"
                     variants={headingVariants}
                     initial="hidden"
@@ -153,7 +152,7 @@ const ServicesSection = () => {
                         From Concept to Joy – The FunPlay Way
                     </span>
 
-                </motion.h2>
+                </motion.p>
                 <motion.div
                     className="w-32 sm:w-40 h-1 bg-gradient-to-r from-black/0 via-gray-900/80 to-indigo-300/0 mx-auto mb-10 sm:mb-12 md:mb-16 rounded-full"
                     initial={{ scaleX: 0 }}

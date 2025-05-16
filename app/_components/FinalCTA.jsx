@@ -72,14 +72,14 @@ const FinalCTA = () => {
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
             <div className="relative max-w-3xl mx-auto">
-                <motion.h2
+                <motion.p
                     className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-700"
                     variants={headingVariants}
                     initial="hidden"
                     animate={inView ? "visible" : "hidden"}
                 >
                     Ready to Build Your Dream Play Space?
-                </motion.h2>
+                </motion.p>
                 <motion.div
                     className="w-32 sm:w-40 h-1 bg-gradient-to-r from-gray-900/0 via-gray-900/80 to-gray-300/0 mx-auto mt-6 sm:mt-8 rounded-full"
                     variants={dividerVariants}

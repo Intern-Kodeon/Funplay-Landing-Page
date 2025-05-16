@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 import { useInView } from "react-intersection-observer";
 
 const images = [
-    "https://img.freepik.com/free-photo/young-children-with-autism-playing-together_23-2151241914.jpg?uid=R110556143&ga=GA1.1.1013345226.1744017707&semt=ais_hybrid&w=740",
-    "https://img.freepik.com/free-photo/vertical-high-angle-shot-cityscape-with-lot-houses-frankfurt-germany_181624-7768.jpg?uid=R110556143&ga=GA1.1.1013345226.1744017707&semt=ais_hybrid&w=740",
-    "https://img.freepik.com/free-photo/couple-walking-holding-hands-park_53876-42655.jpg?uid=R110556143&ga=GA1.1.1013345226.1744017707&semt=ais_hybrid&w=740",
-    "https://img.freepik.com/free-photo/woman-working-model-example-work_53876-14372.jpg?uid=R110556143&ga=GA1.1.1013345226.1744017707&semt=ais_hybrid&w=740",
+    "/new/slider1.webp",
+    "/new/slider2.webp",
+    "/new/slider3.webp",
+    "/new/slider4.webp",
 ];
 
 const WhyWorkSlider = () => {

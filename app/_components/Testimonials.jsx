@@ -7,10 +7,10 @@ import { useInView } from "react-intersection-observer";
 
 // Predefined constants to avoid repeated declarations
 const testimonials = [
-    { img: "https://funplaysystems.com/images/c1.png" },
-    { img: "https://funplaysystems.com/images/c4.png" },
-    { img: "https://funplaysystems.com/images/c3.png" },
-    { img: "https://funplaysystems.com/images/c2.png" }
+    { img: "/testimonial/img1.webp" },
+    { img: "/testimonial/img2.webp" },
+    { img: "/testimonial/img3.webp" },
+    { img: "/testimonial/img4.webp" }
 ];
 
 const reviews = [
@@ -94,7 +94,7 @@ const ReviewCard = memo(({ review, index }) => (
         <div className="flex items-center my-10">
             <div className="w-20 h-20 rounded-full flex items-center justify-center mr-3">
                 <img
-                    src="https://funplaysystems.com/images/usert.png"
+                    src="/testimonial/user.webp"
                     alt={`${review.name}'s avatar`}
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -124,7 +124,7 @@ const TestimonialsSection = () => {
     return (
         <section ref={ref} className="py-16 sm:py-20 bg-gradient-to-b from-blue-50 to-white relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                <motion.h2
+                <motion.p
                     className="text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-6 sm:mb-8 tracking-tight font-sans"
                     variants={headingVariants}
                     initial="hidden"
@@ -133,7 +133,7 @@ const TestimonialsSection = () => {
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700">
                         What Our Clients Say
                     </span>
-                </motion.h2>
+                </motion.p>
                 <motion.div
                     className="w-32 sm:w-40 h-1 bg-gradient-to-r from-gray-900/0 via-gray-900/80 to-gray-300/0 mx-auto mt-6 sm:mt-8 rounded-full"
                     variants={dividerVariants}
@@ -161,10 +161,10 @@ const TestimonialsSection = () => {
                             />
                         </div>
                         <div>
-                            <h3 className="text-2xl max-w-[340px] font-bold text-gray-800 text-center sm:text-left">
+                            <p className="text-2xl max-w-[340px] font-bold text-gray-800 text-center sm:text-left">
                                 Enjoyed by over <span className="text-purple-600">25,000+</span><br />
                                 happy customers are using our products.
-                            </h3>
+                            </p>
                         </div>
                     </motion.div>
                     <motion.div
@@ -174,7 +174,7 @@ const TestimonialsSection = () => {
                         animate={inView ? "visible" : "hidden"}
                         className="text-center sm:text-left"
                     >
-                        <h3 className="text-2xl sm:text-6xl font-bold text-gray-800">200+</h3>
+                        <p className="text-2xl sm:text-6xl font-bold text-gray-800">200+</p>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-48 font-semibold">Projects with innovative designs.</p>
                     </motion.div>
                     <motion.div
@@ -185,7 +185,7 @@ const TestimonialsSection = () => {
                         className="text-center sm:text-left"
                     >
                         <div className="flex flex-col justify-start items-center sm:items-start mb-2">
-                            <h3 className="text-2xl sm:text-6xl font-bold text-gray-800">4.9</h3>
+                            <p className="text-2xl sm:text-6xl font-bold text-gray-800">4.9</p>
                             <span className="text-yellow-400 text-2xl">★★★★★</span>
                         </div>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-40 font-semibold">Average rating from thousands of happy clients.</p>

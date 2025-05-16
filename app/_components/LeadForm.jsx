@@ -112,7 +112,7 @@ export default function LeadForm() {
                 />
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <motion.h2
+                        <motion.p
                             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 tracking-tight font-sans text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-600"
                             variants={headingVariants}
                             initial="hidden"
@@ -121,7 +121,7 @@ export default function LeadForm() {
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-900">
                                 Get a Free Custom Quote in 30 Seconds
                             </span>
-                        </motion.h2>
+                        </motion.p>
                         <motion.div
                             className="w-32 sm:w-40 h-1 bg-gradient-to-r from-gray-300/0 via-gray-600/80 to-gray-300/0 mx-auto mt-6 sm:mt-8 rounded-full"
                             variants={dividerVariants}
