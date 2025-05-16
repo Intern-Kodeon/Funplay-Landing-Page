@@ -11,7 +11,7 @@ const quicksand = Quicksand({
 
 export const metadata = {
   title: "FunPlay Systems - Playground Equipment",
-  description: "FunPlay Systems offers award-winning.",
+  description: "FunPlay Systems offers award-winning, safe, and customizable playground equipment across India.",
 };
 
 export default function RootLayout({ children }) {
