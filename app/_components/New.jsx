@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-
+import { Users, Lightbulb, UserCheck, Shield, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import WhyWorkSlider from "./WhyWorkSlider";
 import { useInView } from "react-intersection-observer";
 
@@ -45,10 +45,10 @@ const cardSectionVariants = {
 };
 
 const features = [
-    {  img: "/new/icon1.webp", title: "Schools & Daycares", description: "Safe, durable, and age-appropriate.", image: "/new/img1.webp" },
-    {  img: "/new/icon2.webp", title: "Residential Societies", description: "Boost community engagement.", image: "/new/img2.webp" },
-    {  img: "/new/icon3.webp", title: "Public Parks & Urban Spaces", description: "Inclusive and compliant.", image: "/new/img3.webp" },
-    {  img: "/new/icon4.webp", title: "Builders & Architects", description: "Custom-built to specification", image: "/new/img4.webp" }
+    { link: "/",  img: "/new/icon1.webp", title: "Schools & Daycares", description: "Safe, durable, and age-appropriate.", image: "/new/img1.webp" },
+    { link: "/",  img: "/new/icon2.webp", title: "Residential Societies", description: "Boost community engagement.", image: "/new/img2.webp" },
+    { link: "/",  img: "/new/icon3.webp", title: "Public Parks & Urban Spaces", description: "Inclusive and compliant.", image: "/new/img3.webp" },
+    { link: "/",  img: "/new/icon4.webp", title: "Builders & Architects", description: "Custom-built to specification", image: "/new/img4.webp" }
 ];
 
 const New = () => {
@@ -104,9 +104,11 @@ const New = () => {
                                             <p className="text-2xl sm:text-3xl font-semibold mb-3 text-gray-900 group-hover:text-white transition-colors duration-300 line-clamp-1">{feature.title}</p>
                                             <p className="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-white transition-colors duration-300 line-clamp-2">{feature.description}</p>
                                             <div className="flex items-center gap-3 transition-colors duration-300 mt-6 cursor-pointer">
+                                                <Link rel="canonical" href={feature.link}>
                                                     <motion.div variants={{ hover: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 120 } }, initial: { x: -20, opacity: 0 } }}>
                                                         <motion.button className="text-sm font-medium text-white">Learn More</motion.button>
                                                     </motion.div>
+                                                </Link>
                                                 <motion.div className="h-5 w-5 text-black">
                                                     <ArrowRight className="h-5 w-5 group-hover:text-white -translate-x-20 -z-50 group-hover:translate-x-0 transition-all duration-300" />
                                                 </motion.div>
