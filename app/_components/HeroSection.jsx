@@ -310,9 +310,9 @@ export default function HeroSectionWithForm() {
                         initial="hidden"
                         animate={inView ? "visible" : "hidden"}
                     >
-                        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600">
+                        <p className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600">
                             Enquire Now
-                        </h2>
+                        </p>
                         <FormComponent
                             register={register}
                             errors={errors}
