@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
+import Head from "next/head";
 
 export default function LeadForm() {
     const [ref, inView] = useInView({
@@ -88,8 +89,13 @@ export default function LeadForm() {
         tap: { scale: 0.98 },
     };
 
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
+
     return (
         <div className="relative bg-[url('https://funplaysystems.com/images/Group77.svg ')] bg-blue-200/20 bg-no-repeat bg-cover">
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <section ref={ref} className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
                 {/* Floating Elements */}
                 <motion.div

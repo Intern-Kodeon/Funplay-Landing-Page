@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import Head from "next/head";
 import { useState, useEffect, memo } from 'react';
 import { useInView } from "react-intersection-observer";
 
@@ -121,8 +122,13 @@ const TestimonialsSection = () => {
         return () => clearInterval(interval);
     }, []); // Removed unnecessary dependency
 
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
+
     return (
         <section ref={ref} className="py-16 sm:py-20 bg-gradient-to-b from-blue-50 to-white relative">
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
                 <motion.p
                     className="text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-6 sm:mb-8 tracking-tight font-sans"

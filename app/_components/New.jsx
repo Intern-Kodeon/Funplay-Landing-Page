@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { Users, Lightbulb, UserCheck, Shield, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Head from "next/head"; // Import Head for canonical URL
 import WhyWorkSlider from "./WhyWorkSlider";
 import { useInView } from "react-intersection-observer";
 
@@ -45,10 +46,10 @@ const cardSectionVariants = {
 };
 
 const features = [
-    { link: "/",  img: "/new/icon1.webp", title: "Schools & Daycares", description: "Safe, durable, and age-appropriate.", image: "/new/img1.webp" },
-    { link: "/",  img: "/new/icon2.webp", title: "Residential Societies", description: "Boost community engagement.", image: "/new/img2.webp" },
-    { link: "/",  img: "/new/icon3.webp", title: "Public Parks & Urban Spaces", description: "Inclusive and compliant.", image: "/new/img3.webp" },
-    { link: "/",  img: "/new/icon4.webp", title: "Builders & Architects", description: "Custom-built to specification", image: "/new/img4.webp" }
+    { link: "/", img: "/new/icon1.webp", title: "Schools & Daycares", description: "Safe, durable, and age-appropriate.", image: "/new/img1.webp" },
+    { link: "/", img: "/new/icon2.webp", title: "Residential Societies", description: "Boost community engagement.", image: "/new/img2.webp" },
+    { link: "/", img: "/new/icon3.webp", title: "Public Parks & Urban Spaces", description: "Inclusive and compliant.", image: "/new/img3.webp" },
+    { link: "/", img: "/new/icon4.webp", title: "Builders & Architects", description: "Custom-built to specification", image: "/new/img4.webp" }
 ];
 
 const New = () => {
@@ -57,8 +58,15 @@ const New = () => {
         threshold: 0.1,
     });
 
+    // Define the canonical URL for this page
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
+
     return (
         <div className="relative bg-[url('https://funplaysystems.com/images/Vector.svg')] bg-blue-200/40 bg-repeat-x bg-cover">
+            {/* Add the canonical URL to the <head> */}
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <section ref={ref} className="py-20 overflow-hidden relative">
                 <motion.div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 to-transparent" variants={glowVariants} animate={inView ? "animate" : {}} />
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
@@ -90,7 +98,13 @@ const New = () => {
                                 animate={inView ? "visible" : "hidden"}
                             >
                                 {features.map((feature) => (
-                                    <motion.div key={feature.title} variants={itemVariants} initial="initial" whileHover="hover" className="relative bg-white p-6 rounded-xl shadow-md border border-blue-100 hover:border-blue-300 transition-all duration-300 group cursor-pointer">
+                                    <motion.div
+                                        key={feature.title}
+                                        variants={itemVariants}
+                                        initial="initial"
+                                        whileHover="hover"
+                                        className="relative bg-white p-6 rounded-xl shadow-md border border-blue-100 hover:border-blue-300 transition-all duration-300 group cursor-pointer"
+                                    >
                                         <motion.div variants={imageVariants} className="absolute inset-0 z-0 opacity-50 rounded-xl group-hover:opacity-100 transition-opacity duration-500">
                                             <img loading="lazy" src={feature.image} alt={feature.title} className="w-full h-full object-cover rounded-xl" />
                                             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/50 to-transparent rounded-xl" />
@@ -104,7 +118,8 @@ const New = () => {
                                             <p className="text-2xl sm:text-3xl font-semibold mb-3 text-gray-900 group-hover:text-white transition-colors duration-300 line-clamp-1">{feature.title}</p>
                                             <p className="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-white transition-colors duration-300 line-clamp-2">{feature.description}</p>
                                             <div className="flex items-center gap-3 transition-colors duration-300 mt-6 cursor-pointer">
-                                                <Link rel="canonical" href={feature.link}>
+                                                {/* Use Link for navigation */}
+                                                <Link href={feature.link}>
                                                     <motion.div variants={{ hover: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 120 } }, initial: { x: -20, opacity: 0 } }}>
                                                         <motion.button className="text-sm font-medium text-white">Learn More</motion.button>
                                                     </motion.div>

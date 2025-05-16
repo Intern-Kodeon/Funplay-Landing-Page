@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInView } from "react-intersection-observer";
+import Head from "next/head";
 
 const images = [
     "/new/slider1.webp",
@@ -42,8 +43,13 @@ const WhyWorkSlider = () => {
         return () => clearInterval(interval);
     }, [index, isPlaying, inView]);
 
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
+
     return (
         <div ref={ref} className="flex flex-col justify-center gap-10 mt-10 md:mt-0">
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className="w-full mx-auto overflow-hidden rounded-lg shadow-xl">
                 <AnimatePresence mode="wait">
                     <motion.img

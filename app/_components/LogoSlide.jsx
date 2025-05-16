@@ -4,6 +4,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
+import Head from 'next/head';
 
 function LogoSlide() {
     const headingVariants = {
@@ -67,8 +68,13 @@ function LogoSlide() {
         { img: "/client/welmont.webp" },
     ];
 
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
+
     return (
         <div ref={ref} className="bg-white py-32">
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <motion.p
                 className="text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-6 sm:mb-8 tracking-tight font-sans"
                 variants={headingVariants}

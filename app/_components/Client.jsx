@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
+import Head from 'next/head';
 
 function Client() {
     const stats = [
@@ -70,8 +71,13 @@ function Client() {
         };
     }, []);
 
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
+
     return (
         <div ref={ref} className="w-full bg-gradient-to-b from-[#e6f5fc] to-[#e6f5fc] py-6 md:py-10">
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className="px-4 sm:px-10 md:px-20 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-10">
                 {stats.map((stat, index) => (
                     <motion.div

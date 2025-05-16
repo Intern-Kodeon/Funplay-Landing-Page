@@ -6,10 +6,11 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useInView } from "react-intersection-observer";
 import { useForm } from "react-hook-form";
+import Head from "next/head";
 
 // Predefined constants
 const images = [
-    "/hero/heropage1.webp", 
+    "/hero/heropage1.webp",
     "/hero/heropage2.webp ",
     "/hero/heropage3.webp "
 ];
@@ -223,8 +224,14 @@ export default function HeroSectionWithForm() {
         }
     };
 
+    // Define the canonical URL for this page
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
+
     return (
         <section ref={ref} className="relative min-h-screen flex items-center justify-center text-black py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 overflow-hidden bg-black/80">
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className="absolute inset-0 overflow-hidden">
                 <Swiper
                     modules={[Autoplay]}

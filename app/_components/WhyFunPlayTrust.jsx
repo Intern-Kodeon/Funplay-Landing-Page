@@ -4,6 +4,7 @@ import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import { CircleArrowRight } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
+import Head from 'next/head';
 
 // Predefined constants to avoid repeated declarations
 const products = [
@@ -121,12 +122,15 @@ ProductCard.displayName = 'ProductCard';
 
 function WhyFunPlayTrust() {
     const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.3 });
-
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
     return (
         <motion.div
             ref={ref}
             className="min-h-screen py-20 px-2 sm:px-4 bg-gradient-to-b from-[#e6f5fc] to-[#e6f5fc] relative overflow-hidden"
         >
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#e74c3c]/20 rounded-full translate-x-1/2 translate-y-1/2"></div>
             <div className="max-w-7xl mx-auto relative z-10">
                 <motion.h5

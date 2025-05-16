@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { memo } from "react";
+import Head from "next/head";
 
 // Optimized animation variants
 const headingVariants = {
@@ -54,11 +55,16 @@ CTAButton.displayName = 'CTAButton';
 const FinalCTA = () => {
     const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.3 });
 
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
+
     return (
         <section
             ref={ref}
             className="relative py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-white to-[#B3E0F5] text-center"
         >
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmFpbiIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDAgMTAgTCAxMCAwIE0gLTEgMSBMIDEgLTEgTSAxMSA5IEwgOSAxMSIgc3Ryb2tlPSJyZ2JhKDAsMCwwLDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjZ3JhaW4pIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')] opacity-10" />
             {/* Simplified floating elements for performance */}
             <motion.div

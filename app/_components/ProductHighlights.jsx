@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
+import Head from 'next/head';
 
 export default function ProductHighlights() {
     const products = [
@@ -151,9 +152,12 @@ export default function ProductHighlights() {
             }
         };
     }, []);
-
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
     return (
         <div ref={ref} className="relative bg-gradient-to-b from-[#f5fbff] to-[#e8f4fe] py-16 sm:py-24 px-4 overflow-hidden">
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className="absolute inset-0 overflow-hidden">
                 <BackgroundPattern />
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-50/10 to-transparent"></div>
@@ -259,7 +263,7 @@ export default function ProductHighlights() {
                                     )}
                                     {product.svg3 && product.svgDesc3 && (
                                         <div className='flex items-center gap-2 mt-4'>
-                                            <img src={product.svg3} alt={product.svgDesc3} className='w-5' loading='lazy'/>
+                                            <img src={product.svg3} alt={product.svgDesc3} className='w-5' loading='lazy' />
                                             <p>{product.svgDesc3}</p>
                                         </div>
                                     )}

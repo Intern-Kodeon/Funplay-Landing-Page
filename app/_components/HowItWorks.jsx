@@ -3,6 +3,7 @@
 import React, { memo } from 'react';
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Head from 'next/head';
 
 // Predefined constants to avoid repeated declarations
 const services = [
@@ -126,9 +127,12 @@ ServiceCard.displayName = 'ServiceCard';
 
 const ServicesSection = () => {
     const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.1 });
-
+    const canonicalUrl = "https://funplaylandingpage.netlify.app/"; // Replace with the actual URL of this page
     return (
         <section ref={ref} className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-blue-50 overflow-hidden">
+            <Head>
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmFpbSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIHNjYWxlKDAuMikiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNncmFpbikiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')] opacity-5" />
             {/* Simplified animations to reduce CPU load */}
             <motion.div
