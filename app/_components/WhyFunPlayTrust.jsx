@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, memo } from 'react';
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import { CircleArrowRight } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';

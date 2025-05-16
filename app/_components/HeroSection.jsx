@@ -1,5 +1,5 @@
 "use client";
-import React, { memo, useRef, useState } from "react";
+import React, { memo, useState } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";

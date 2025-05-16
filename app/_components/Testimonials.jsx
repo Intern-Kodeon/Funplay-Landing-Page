@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef, memo } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { useInView } from "react-intersection-observer";
 
 // Predefined constants to avoid repeated declarations
