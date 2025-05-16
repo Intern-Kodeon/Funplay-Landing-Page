@@ -191,7 +191,7 @@ export default function ProductHighlights() {
             />
 
             <div className="relative max-w-7xl mx-auto z-10">
-                <motion.h6
+                <motion.p
                     className="text-4xl sm:text-5xl text-center font-bold mb-8 tracking-tight"
                     initial={{ opacity: 0, y: -30 }}
                     animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -200,7 +200,7 @@ export default function ProductHighlights() {
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-900">
                         Explore Our Signature Play Units
                     </span>
-                </motion.h6>
+                </motion.p>
 
                 <motion.div
                     className="w-40 h-1 bg-gradient-to-r from-black/0 via-gray-900/80 to-indigo-300/0 mx-auto mt-6 rounded-full"

@@ -43,11 +43,12 @@ const CTAButton = memo(({ text, index, gradientFrom, gradientTo }) => (
         whileHover="hover"
         whileTap="tap"
     >
-        <Button
+        <button
+        id="text"
             className={`px-6 sm:px-8 py-3 rounded-full text-base font-semibold shadow-md border border-[#7CC1ED]/30 bg-gradient-to-r ${gradientFrom} ${gradientTo} text-gray-900`}
         >
             {text}
-        </Button>
+        </button>
     </motion.div>
 ));
 CTAButton.displayName = 'CTAButton';

@@ -121,7 +121,7 @@ const New = () => {
                                                 {/* Use Link for navigation */}
                                                 <Link href={feature.link}>
                                                     <motion.div variants={{ hover: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 120 } }, initial: { x: -20, opacity: 0 } }}>
-                                                        <motion.button className="text-sm font-medium text-white">Learn More</motion.button>
+                                                        <motion.div className="text-sm font-medium text-white">Learn More</motion.div>
                                                     </motion.div>
                                                 </Link>
                                                 <motion.div className="h-5 w-5 text-black">

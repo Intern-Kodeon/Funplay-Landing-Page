@@ -262,7 +262,10 @@ export default function LeadForm() {
 
                             {/* Category */}
                             <div className="md:col-span-2 relative">
-                                <label className="font-medium text-gray-900 text-2xl flex items-center gap-2">
+                                <label
+                                    htmlFor="customerType" // Add for attribute to match the select's id
+                                    className="font-medium text-gray-900 text-2xl flex items-center gap-2"
+                                >
                                     <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h-4m-6 0H5a2 2 0 01-2-2v-1a2 2 0 012-2h14a2 2 0 012 2v1a2 2 0 01-2 2z"></path>
                                     </svg>
@@ -270,6 +273,7 @@ export default function LeadForm() {
                                 </label>
                                 <div className="relative">
                                     <select
+                                        id="customerType" // Add id to link with the label
                                         {...register("customerType", { required: "This field is required" })}
                                         className={`w-full h-16 px-3 bg-white text-gray-800 border border-gray-300 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 transition-all duration-300 rounded-sm mt-2 pr-10 ${errors.customerType ? "border-red-500" : ""}`}
                                     >
@@ -324,6 +328,7 @@ export default function LeadForm() {
                             className="relative"
                         >
                             <button
+                                id="alb" aria-labelledby="labeldiv"
                                 type="submit"
                                 className="w-full h-16 bg-gradient-to-r from-blue-500 to-blue-400 hover:from-blue-600 hover:to-blue-500 text-white text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                             >
