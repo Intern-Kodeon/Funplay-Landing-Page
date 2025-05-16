@@ -1,4 +1,5 @@
 
+import Head from 'next/head';
 import Client from './_components/Client';
 import FinalCTA from './_components/FinalCTA';
 import HeroSection from './_components/HeroSection';
@@ -14,7 +15,9 @@ import WhyFunPlayTrust from './_components/WhyFunPlayTrust';
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
-      
+      <Head>
+        <link rel="canonical" href="https://funplaylandingpage.netlify.app/" />
+      </Head>
       <HeroSection />
       <Client />
       <WhyFunPlayTrust />
