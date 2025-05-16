@@ -133,7 +133,7 @@ function WhyFunPlayTrust() {
             </Head>
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#e74c3c]/20 rounded-full translate-x-1/2 translate-y-1/2"></div>
             <div className="max-w-7xl mx-auto relative z-10">
-                <motion.h2
+                <motion.p
                     className="text-4xl md:text-5xl text-center font-bold mb-8 tracking-tight font-sans"
                     initial={{ opacity: 0, y: -30 }}
                     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -142,7 +142,7 @@ function WhyFunPlayTrust() {
                     <span className="bg-clip-text text-transparent quicksand bg-gradient-to-r from-black to-gray-900">
                         Why Trust FunPlay?
                     </span>
-                </motion.h2>
+                </motion.p>
                 <motion.div
                     className="w-32 sm:w-40 h-1 bg-gradient-to-r from-black/0 via-gray-900/80 to-indigo-300/0 mx-auto mt-6 sm:mt-8 rounded-full"
                     initial={{ scaleX: 0 }}
